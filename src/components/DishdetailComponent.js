@@ -28,7 +28,7 @@ class DishDetail extends Component{
     renderComments(comments){
 
         if(comments != null){
-            const commentList = comments.map((d)=> {return(< li key={d.id}><p>{d.comment}</p> <p>--{d.author}</p></li>);})
+            const commentList = comments.map((d)=> {return(<li key={d.id}><p>{d.comment}</p> <p>--{d.author}</p></li>);})
             return(
                 <div>
                     <ul className = "list-unstyled">
