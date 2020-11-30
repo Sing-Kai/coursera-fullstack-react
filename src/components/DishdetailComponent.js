@@ -30,14 +30,13 @@ class DishDetail extends Component{
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
         let date = new Date(dateISO);
-        let year = date.getFullYear('YY');
+        let year = date.getFullYear();
         let month = date.getMonth();
         let dt = date.getDate();
 
         if (dt < 10) {
             dt = '0' + dt;
-          }
-
+        }
 
         return  monthNames[month] + ' ' + dt + ', ' + year;
     }
