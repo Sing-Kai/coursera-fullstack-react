@@ -45,10 +45,18 @@ class DishDetail extends Component{
 
         if(comments != null){
             const commentList = comments.map((d)=> {
-                return(<li key={d.id}><p>{d.comment}</p> <p>--{d.author}, {this.convertDate(d.date)}</p></li>);
+                return(
+                
+                    <li key={d.id}>
+                        <p>{d.comment}</p> 
+                        <p>--{d.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(d.date)))}</p>
+                    </li>
+                
+                );
             });
             return(
                 <div>
+                    {/* <h4>Comments</h4> */}
                     <ul className = "list-unstyled">
                         {commentList}
                     </ul>
@@ -73,16 +81,18 @@ class DishDetail extends Component{
         }
 
         return(
-
-            <div className="row">
-                <div  className="col-12 col-md-5 m-1">
-                    {this.renderDish(dish)}
-                </div>
-                <div  className="col-12 col-md-5 m-1">
-                    <h4>Comments</h4>
-                    {this.renderComments(comments)}
+            <div className = "container">
+                <div className="row">
+                    <div  className="col-12 col-md-5 m-1">
+                        {this.renderDish(dish)}
+                    </div>
+                    <div  className="col-12 col-md-5 m-1">
+                        <h4>Comments</h4>
+                        {this.renderComments(comments)}
+                    </div>
                 </div>
             </div>
+
         );
     }
 }
