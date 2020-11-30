@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,CardTitle } from 'reactstrap';
 
 class DishDetail extends Component{
 
@@ -25,12 +25,30 @@ class DishDetail extends Component{
         }
     }
 
+    convertDate(dateISO){
+
+        const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "June","Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        let date = new Date(dateISO);
+        let year = date.getFullYear('YY');
+        let month = date.getMonth();
+        let dt = date.getDate();
+
+        if (dt < 10) {
+            dt = '0' + dt;
+          }
+
+
+        return  monthNames[month] + ' ' + dt + ', ' + year;
+    }
+
     renderComments(comments){
 
         if(comments != null){
-            const commentList = comments.map((d)=> {return(<li key={d.id}><p>{d.comment}</p> <p>--{d.author}</p></li>);})
+        const commentList = comments.map((d)=> {return(<li key={d.id}><p>{d.comment}</p> <p>--{d.author}, {this.convertDate(d.date)}</p></li>);})
             return(
                 <div>
+                    <h4>Comments</h4>
                     <ul className = "list-unstyled">
                         {commentList}
                     </ul>
@@ -41,6 +59,8 @@ class DishDetail extends Component{
             return(<div></div>);
         }
     }
+
+
 
     render(){
 
