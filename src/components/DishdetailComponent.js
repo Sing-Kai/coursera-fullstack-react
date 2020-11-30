@@ -44,10 +44,11 @@ class DishDetail extends Component{
     renderComments(comments){
 
         if(comments != null){
-        const commentList = comments.map((d)=> {return(<li key={d.id}><p>{d.comment}</p> <p>--{d.author}, {this.convertDate(d.date)}</p></li>);})
+            const commentList = comments.map((d)=> {
+                return(<li key={d.id}><p>{d.comment}</p> <p>--{d.author}, {this.convertDate(d.date)}</p></li>);
+            });
             return(
                 <div>
-                    <h4>Comments</h4>
                     <ul className = "list-unstyled">
                         {commentList}
                     </ul>
@@ -78,6 +79,7 @@ class DishDetail extends Component{
                     {this.renderDish(dish)}
                 </div>
                 <div  className="col-12 col-md-5 m-1">
+                    <h4>Comments</h4>
                     {this.renderComments(comments)}
                 </div>
             </div>
