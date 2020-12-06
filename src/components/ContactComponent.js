@@ -19,7 +19,7 @@ class Contact extends Component{
 
         //binds that event
         this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleSubmit = this.handleInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleInputChange(event){
