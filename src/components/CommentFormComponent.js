@@ -33,7 +33,7 @@ class CommentForm extends Component{
             <div>
                 <Button outline onClick={this.toggleModal}><span className="fa fa-pencil fa-lg"></span> Submit Comment</Button>
 
-                <Modal isOpen={this.state.isModalOpen}>
+                <Modal isOpen={this.state.isModalOpen} toggle ={this.toggleModal}>
                     <ModalHeader toggle ={this.toggalModal}>Submit Comment</ModalHeader>
                     <ModalBody>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
