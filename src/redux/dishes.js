@@ -10,9 +10,9 @@ export const Dishes = (state = { isLoading: true,errMess: null, dishes:[]}, acti
 
         case ActionTypes.DISHES_FAILED:
 
-            console.log("failed loading dish")
-            console.log(state);
-            console.log(action.payload);
+            // console.log("failed loading dish")
+            // console.log(state);
+            // console.log(action.payload);
 
             return {...state, isLoading: false, errMess: action.payload};
 
