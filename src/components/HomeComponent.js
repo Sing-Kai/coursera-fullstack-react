@@ -8,15 +8,21 @@ function RenderCard({item, isLoading, errMess}) {
 
     if (isLoading) {
         return(
-                <Loading />
+            <Loading />
         );
     }
     else if (errMess) {
         return(
-                <h4>{errMess}</h4>
+            <h4>{errMess}</h4>
         );
     }
-    else 
+    else{
+
+        console.log("trying to render card");
+        console.log(item);
+        console.log(isLoading);
+        console.log(errMess);
+
         return(
             <Card>
                 <CardImg src={baseUrl + item.image} alt={item.name} />
@@ -26,10 +32,12 @@ function RenderCard({item, isLoading, errMess}) {
                 <CardText>{item.description}</CardText>
                 </CardBody>
             </Card>
-    );
+            );
+    }
 }
 
 function Home(props){
+
     return(
         <div className="container">
             <div className="row align-items-start">

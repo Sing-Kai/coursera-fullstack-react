@@ -1,4 +1,3 @@
-import {DISHES} from '../shared/dishes';
 import * as ActionTypes from './ActionTypes';
 
 export const Dishes = (state = { isLoading: true,errMess: null, dishes:[]}, action) => {
@@ -10,6 +9,11 @@ export const Dishes = (state = { isLoading: true,errMess: null, dishes:[]}, acti
             return {...state, isLoading: true, errMess: null, dishes: []}
 
         case ActionTypes.DISHES_FAILED:
+
+            console.log("failed loading dish")
+            console.log(state);
+            console.log(action.payload);
+
             return {...state, isLoading: false, errMess: action.payload};
 
         default:
